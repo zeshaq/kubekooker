@@ -1,0 +1,53 @@
+name: Bug
+description: Something is broken.
+labels: ["type:bug"]
+body:
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain guess
+      description: Which layer do you suspect? "unsure" is fine.
+      options:
+        - gui
+        - manager
+        - proto
+        - shared
+        - infra
+        - unsure
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: Build / commit SHA
+      description: What version was running when the bug was observed?
+      placeholder: "0.1.0-abc1234 or main@def5678"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots / event-stream output
+      description: Relevant excerpts only. For daemon logs, prefer `journalctl -u kubekooker --since "10 minutes ago"`.

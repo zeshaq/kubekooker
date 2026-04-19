@@ -1,0 +1,32 @@
+name: Spike / investigation
+description: A timeboxed investigation that must produce a decision.
+labels: ["type:spike"]
+body:
+  - type: input
+    id: timebox
+    attributes:
+      label: Timebox
+      description: Maximum investigation time. If exceeded, stop and report findings even if incomplete.
+      placeholder: "2 hours / 1 day / 3 days"
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question to answer
+      description: One concrete question the spike must answer.
+    validations:
+      required: true
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: Deliverable
+      description: What artifact proves the spike is done? Usually an ADR or a decision-log comment. Not code.
+      placeholder: "ADR-NNNN: title, OR a design note in shared/docs/, OR a comment here with the decision."
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Known constraints
+      description: Decisions already made (existing ADRs, non-goals) that bound the investigation.

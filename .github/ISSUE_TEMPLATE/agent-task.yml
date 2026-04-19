@@ -1,0 +1,51 @@
+name: Agent task
+description: A scoped task intended to be claimed by a Claude Code worktree agent.
+labels: ["type:agent-task"]
+body:
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain (worktree)
+      options:
+        - gui
+        - manager
+        - proto
+        - shared
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: One-sentence statement of what "done" means.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria (agent-verifiable)
+      description: Concrete, self-checkable tests. The agent must write tests that prove each item passes.
+      placeholder: |
+        - [ ] `go test ./proto/...` passes
+        - [ ] New endpoint documented in OpenAPI schema
+        - [ ] Integration test covers the success path
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Inputs / context
+      description: Files, ADRs, or prior issues the agent should read before starting. Keep focused.
+  - type: input
+    id: lock-file
+    attributes:
+      label: Task-lock filename
+      description: The file the claiming agent will commit to `.claude/tasks/` to avoid double-claims.
+      placeholder: "ISSUE-NNN.lock"
+    validations:
+      required: true
+  - type: textarea
+    id: non-goals
+    attributes:
+      label: Non-goals for this task
+      description: What the agent should explicitly NOT touch, to prevent scope creep.

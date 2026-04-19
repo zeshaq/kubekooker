@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussion
+    url: https://github.com/zeshaq/kubekooker/discussions
+    about: For design debates and open-ended questions. File an Issue only once there's a concrete decision to make or work to do.

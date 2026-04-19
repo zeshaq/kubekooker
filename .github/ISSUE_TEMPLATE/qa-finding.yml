@@ -1,0 +1,67 @@
+name: QA finding
+description: Observation from a QA testing session. May or may not become work.
+labels: ["type:qa-finding"]
+body:
+  - type: input
+    id: session
+    attributes:
+      label: QA session label
+      description: Which testing session produced this? (e.g., `qa-session-3`)
+      placeholder: "qa-session-N"
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: Build / commit SHA tested
+      placeholder: "0.1.0-abc1234 or main@def5678"
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - blocker
+        - major
+        - minor
+        - polish
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+    validations:
+      required: true
+  - type: dropdown
+    id: domain-guess
+    attributes:
+      label: Domain guess
+      options:
+        - gui
+        - manager
+        - proto
+        - shared
+        - infra
+        - unsure
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshot / screen recording / log snippet

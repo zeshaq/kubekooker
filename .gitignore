@@ -45,3 +45,6 @@ pnpm-debug.log*
 /data/
 /tmp/
 *.pid
+
+# Personal Claude Code overrides (shared settings.json stays committed)
+.claude/settings.local.json
